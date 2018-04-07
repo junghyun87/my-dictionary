@@ -1,24 +1,19 @@
 {
-  "name": "weathered",
-  "productName": "Weathered",
+  "name": "dictionary-in-tray",
+  "productName": "Dic-in-tray",
   "version": "1.0.0",
   "main": "main.js",
   "license": "ISC",
-  "author": "Kevin Sawicki",
+  "author": "Jung-Hyun",
   "scripts": {
     "start": "electron .",
-    "package": "electron-packager ./ --platform=darwin --arch=x64 --out=out --icon=./icon.icns --overwrite"
+    "package":
+      "electron-packager ./ --platform=darwin --arch=x64 --out=out --icon=./icon.icns --overwrite"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kevinsawicki/tray-example.git"
-  },
-  "bugs": {
-    "url": "https://github.com/kevinsawicki/tray-example/issues"
-  },
-  "homepage": "https://github.com/kevinsawicki/tray-example#readme",
+  "repository": "https://github.com/junghyun87/dictionary-in-tray",
+  "keywords": ["Dictionary", "Electron"],
   "devDependencies": {
-    "electron-packager": "^7.3.0",
-    "electron-prebuilt": "^1.2.7"
+    "electron": "^1.8.4",
+    "electron-packager": "^12.0.0"
   }
 }
