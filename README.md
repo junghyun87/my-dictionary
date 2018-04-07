@@ -1,19 +1,22 @@
-# Tray Example
+# Dictionary in Tray
 
-An example app for building a native-looking Mac OS X tray app with a popover
-using [Electron](http://electron.atom.io).
+I frequently use [올ㅋ사전](http://allkdic.xoul.kr/), but it does not provide another dictionary that I also frequently use, so I made it.
 
-The app shows the weather for the current location and refreshes every 10
-minutes.
+This app now shows [Oxford Learner's Dictionaries](https://www.oxfordlearnersdictionaries.com/).
 
-Built with [photon](http://photonkit.com).
-Uses the [Dark Sky Forecast API](https://developer.forecast.io).
+I plan to add a feature that a user can add another dictionary websites and choose one of them.
+
+This app is built with [Electron](https://electronjs.org/) and [photon](http://photonkit.com).
+
+Much code is from [tray-example](https://github.com/kevinsawicki/tray-example) and [electron-bookmark](https://github.com/2woongjae/electron-bookmark).
+
+Icons are from [electron-bookmark](https://github.com/2woongjae/electron-bookmark).
 
 ## Running
 
 ```sh
-git clone https://github.com/kevinsawicki/tray-example
-cd tray-example
+git clone https://github.com/junghyun87/dictionary-in-tray
+cd dictionary-in-tray
 npm install
 npm start
 ```
@@ -22,7 +25,7 @@ npm start
 
 ```sh
 npm run package
-open out/Weathered-darwin-x64/Weathered.app
+open out/Dic-in-tray-darwin-x64/Dic-in-tray.app
 ```
 
-![screenshot](https://cloud.githubusercontent.com/assets/671378/15033544/97011f38-1220-11e6-9611-1571063fe107.png)
+![screenshot](https://user-images.githubusercontent.com/4505216/38454484-2f366892-3aa3-11e8-9e7c-baafd357891c.png)
