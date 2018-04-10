@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Tray } = require('electron');
+const { app, BrowserWindow, Tray, Menu } = require('electron');
 const path = require('path');
 
 const assetsDirectory = path.join(__dirname, 'assets');
@@ -12,7 +12,29 @@ app.dock.hide();
 app.on('ready', () => {
   createTray();
   createWindow();
+  createMenu();
 });
+
+const createMenu = () => {
+  let menuTemplate = [
+    {
+      label: app.getName(),
+      submenu: [{ role: 'quit' }],
+    },
+    {
+      label: 'Edit',
+      submenu: [
+        { role: 'undo' },
+        { role: 'redo' },
+        { role: 'cut' },
+        { role: 'copy' },
+        { role: 'paste' },
+        { role: 'selectall' },
+      ],
+    },
+  ];
+  Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplate));
+};
 
 // Quit the app when the window is closed
 app.on('window-all-closed', () => {
