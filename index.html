@@ -8,35 +8,13 @@
 </head>
 
 <body>
-  <div class="window">
-    <header class="toolbar toolbar-header">
-      <div class="toolbar-actions">
-        <h1 class="title">Dictionary</h1>
-        <div class="btn-group">
-          <button id="btn_left" class="btn btn-default">
-            <span class="icon icon-left"></span>
-          </button>
-          <button id="btn_right" class="btn btn-default">
-            <span class="icon icon-right"></span>
-          </button>
-
-
-        </div>
-        <button class="btn btn-default btn-dropdown pull-right">
-          <span class="icon icon-menu"></span>
-        </button>
-      </div>
-    </header>
-
-    <div class="window-content">
-      <webview id="wv" src="https://www.oxfordlearnersdictionaries.com/" style="display:inline-flex; width:360px; height:500px"></webview>
-    </div>
+  <div class="window" id="app">
+    
   </div>
-
 
   <script>
     // You can also require other files to run in this process
-    require('./renderer.js')
+    require('./.tmp/renderer/app.js')
   </script>
 </body>
 
