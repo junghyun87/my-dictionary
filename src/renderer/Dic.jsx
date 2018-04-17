@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-
+import './Dic.css';
 const wv_style = { display: 'inline-flex', width: 360, height: 500 };
 
 class Dic extends Component {
@@ -8,6 +8,7 @@ class Dic extends Component {
     super();
     this.handleLeftClick = this.handleLeftClick.bind(this);
     this.handleRightClick = this.handleRightClick.bind(this);
+    this.handleMoreClick = this.handleMoreClick.bind(this);
   }
 
   handleLeftClick() {
@@ -22,6 +23,14 @@ class Dic extends Component {
     if (_webview.canGoForward()) {
       _webview.goForward();
     }
+  }
+
+  handleMoreClick() {
+    const { _options } = this.refs;
+    console.log(_options.style.display);
+    _options.style.display === 'none' || _options.style.display === ''
+      ? (_options.style.display = 'block')
+      : (_options.style.display = 'none');
   }
 
   render() {
@@ -44,9 +53,18 @@ class Dic extends Component {
                 <span className="icon icon-right" />
               </button>
             </div>
-            <button className="btn btn-default btn-dropdown pull-right">
-              <span className="icon icon-menu" />
-            </button>
+            <div id="right-menu" className="pull-right">
+              <button
+                className="btn btn-default btn-dropdown dropdown"
+                onClick={this.handleMoreClick}>
+                <span className="icon icon-menu" />
+              </button>
+              <div className="dropdown-content" ref="_options">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+              </div>
+            </div>
           </div>
         </header>
 
