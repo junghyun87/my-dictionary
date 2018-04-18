@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import './Dic.css';
-const wv_style = { display: 'inline-flex', width: 360, height: 500 };
+const wv_style = {
+  display: 'inline-flex',
+  width: 360,
+  height: 500,
+};
 
 class Dic extends Component {
   constructor() {
@@ -9,6 +13,32 @@ class Dic extends Component {
     this.handleLeftClick = this.handleLeftClick.bind(this);
     this.handleRightClick = this.handleRightClick.bind(this);
     this.handleMoreClick = this.handleMoreClick.bind(this);
+    this.handleMenuItemClick = this.handleMenuItemClick.bind(this);
+    localStorage.setItem(
+      'dictionaries',
+      JSON.stringify([
+        {
+          name: 'Dictionary.com',
+          url: 'http://www.dictionary.com/',
+        },
+        {
+          name: "Oxford learner's Dict.",
+          url: 'https://www.oxfordlearnersdictionaries.com/',
+        },
+        {
+          name: 'Naver Korean-English Dict.',
+          url: 'http://m.endic.naver.com/',
+        },
+        {
+          name: 'Google',
+          url: 'https://www.google.com/',
+        },
+      ])
+    );
+    this.dictionaries = JSON.parse(localStorage.getItem('dictionaries'));
+    this.state = {
+      webview_url: 'https://www.oxfordlearnersdictionaries.com/',
+    };
   }
 
   handleLeftClick() {
@@ -33,7 +63,19 @@ class Dic extends Component {
       : (_options.style.display = 'none');
   }
 
+  handleMenuItemClick(dicURL, e) {
+    this.setState({ webview_url: dicURL });
+    const { _options } = this.refs;
+    _options.style.display = 'none';
+    e.preventDefault();
+  }
+
   render() {
+    const dropdown_items = this.dictionaries.map((dic, i) => (
+      <a href="#" key={i} onClick={e => this.handleMenuItemClick(dic.url, e)}>
+        {dic.name}
+      </a>
+    ));
     return (
       <div>
         <header className="toolbar toolbar-header">
@@ -60,9 +102,7 @@ class Dic extends Component {
                 <span className="icon icon-menu" />
               </button>
               <div className="dropdown-content" ref="_options">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+                {dropdown_items}
               </div>
             </div>
           </div>
@@ -71,7 +111,7 @@ class Dic extends Component {
         <div className="window-content">
           <webview
             ref="_webview"
-            src="https://www.oxfordlearnersdictionaries.com/"
+            src={this.state.webview_url}
             style={wv_style}
           />
         </div>
