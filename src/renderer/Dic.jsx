@@ -14,6 +14,7 @@ class Dic extends Component {
     this.handleRightClick = this.handleRightClick.bind(this);
     this.handleMoreClick = this.handleMoreClick.bind(this);
     this.handleMenuItemClick = this.handleMenuItemClick.bind(this);
+    this.handleEditClick = this.handleEditClick.bind(this);
     localStorage.setItem(
       'dictionaries',
       JSON.stringify([
@@ -70,6 +71,11 @@ class Dic extends Component {
     e.preventDefault();
   }
 
+  handleEditClick(e) {
+    this.props.router.push('/config');
+    e.preventDefault();
+  }
+
   render() {
     const dropdown_items = this.dictionaries.map((dic, i) => (
       <a href="#" key={i} onClick={e => this.handleMenuItemClick(dic.url, e)}>
@@ -103,6 +109,9 @@ class Dic extends Component {
               </button>
               <div className="dropdown-content" ref="_options">
                 {dropdown_items}
+                <a href="#" onClick={e => this.handleEditClick(e)}>
+                  Edit dictionaries
+                </a>
               </div>
             </div>
           </div>
