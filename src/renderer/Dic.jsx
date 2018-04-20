@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import * as Mousetrap from 'Mousetrap';
 import './Dic.css';
 const wv_style = {
   display: 'inline-flex',
@@ -15,6 +16,7 @@ class Dic extends Component {
     this.handleMoreClick = this.handleMoreClick.bind(this);
     this.handleMenuItemClick = this.handleMenuItemClick.bind(this);
     this.handleEditClick = this.handleEditClick.bind(this);
+    this.handleShortcut = this.handleShortcut.bind(this);
     localStorage.setItem(
       'dictionaries',
       JSON.stringify([
@@ -40,6 +42,19 @@ class Dic extends Component {
     this.state = {
       webview_url: 'https://www.oxfordlearnersdictionaries.com/',
     };
+  }
+
+  handleShortcut(number) {
+    console.log('shortchut function!', number);
+    this.setState({ webview_url: this.dictionaries[number].url });
+  }
+
+  componentDidMount() {
+    this.dictionaries.forEach((d, i) => {
+      Mousetrap.bind(`command+${i + 1}`, () => {
+        this.handleShortcut(i);
+      });
+    });
   }
 
   handleLeftClick() {
@@ -77,11 +92,14 @@ class Dic extends Component {
   }
 
   render() {
-    const dropdown_items = this.dictionaries.map((dic, i) => (
-      <a href="#" key={i} onClick={e => this.handleMenuItemClick(dic.url, e)}>
-        {dic.name}
-      </a>
-    ));
+    const dropdown_items = this.dictionaries.map((dic, i) => {
+      return (
+        <div key={i} onClick={e => this.handleMenuItemClick(dic.url, e)}>
+          <span>{dic.name}</span>
+          {i < 10 ? <span>⌘{i + 1}</span> : null}
+        </div>
+      );
+    });
     return (
       <div>
         <header className="toolbar toolbar-header">
@@ -109,9 +127,10 @@ class Dic extends Component {
               </button>
               <div className="dropdown-content" ref="_options">
                 {dropdown_items}
-                <a href="#" onClick={e => this.handleEditClick(e)}>
-                  Edit dictionaries
-                </a>
+                <div onClick={e => this.handleEditClick(e)}>
+                  <span>Edit dictionaries</span>
+                  <span>⌘0</span>
+                </div>
               </div>
             </div>
           </div>
