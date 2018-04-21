@@ -9,11 +9,13 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "start": "electron .",
-    "package":
-      "electron-packager ./ --platform=darwin --arch=x64 --out=out --icon=./icon.icns --overwrite"
+    "package": "electron-packager ./ --platform=darwin --arch=x64 --out=out --icon=./icon.icns --overwrite"
   },
   "repository": "https://github.com/junghyun87/dictionary-in-tray",
-  "keywords": ["Dictionary", "Electron"],
+  "keywords": [
+    "Dictionary",
+    "Electron"
+  ],
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-loader": "^6.2.4",
@@ -26,8 +28,10 @@
     "webpack": "^2.2.0"
   },
   "dependencies": {
+    "mousetrap": "^1.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-mousetrap": "^0.2.0",
     "react-router": "^3.2.0"
   }
 }

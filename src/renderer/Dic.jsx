@@ -33,6 +33,10 @@ class Dic extends Component {
           url: 'http://m.endic.naver.com/',
         },
         {
+          name: 'Memorize this',
+          url: 'https://memorize-this.firebaseapp.com/new',
+        },
+        {
           name: 'Google',
           url: 'https://www.google.com/',
         },

@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Tray, Menu } from 'electron';
+import { app, BrowserWindow, Tray, Menu, globalShortcut } from 'electron';
 import path from 'path';
 
 const assetsDirectory = path.join(__dirname, '../../', 'assets');
@@ -13,6 +13,9 @@ app.on('ready', () => {
   createTray();
   createWindow();
   createMenu();
+  globalShortcut.register('Ctrl+Cmd+Shift+D', () => {
+    toggleWindow();
+  });
 });
 
 const createMenu = () => {
