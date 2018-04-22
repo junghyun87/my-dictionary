@@ -2,16 +2,31 @@ import React, { Component } from 'react';
 import {
   SortableContainer,
   SortableElement,
+  SortableHandle,
   arrayMove,
 } from 'react-sortable-hoc';
 
-const SortableItem = SortableElement(({ value }) => <li>{value}</li>);
+const DragHandle = SortableHandle(() => <span>::</span>); // This can be any component you want
 
-const SortableList = SortableContainer(({ items }) => {
+const SortableItem = SortableElement(({ idx, onRemove, value }) => (
+  <li>
+    <DragHandle />
+    {value}
+    <span onClick={() => onRemove(idx)}>Remove {idx}</span>
+  </li>
+));
+
+const SortableList = SortableContainer(({ items, onRemove }) => {
   return (
     <ol>
       {items.map((value, index) => (
-        <SortableItem key={`item-${index}`} index={index} value={value.name} />
+        <SortableItem
+          key={`item-${index}`}
+          index={index}
+          idx={index}
+          value={value.name}
+          onRemove={onRemove}
+        />
       ))}
     </ol>
   );
@@ -20,13 +35,18 @@ const SortableList = SortableContainer(({ items }) => {
 class Config extends Component {
   constructor() {
     super();
-    this.handleBackClick = this.handleBackClick.bind(this);
-    this.onSortEnd = this.onSortEnd.bind(this);
     const dictionaries = JSON.parse(localStorage.getItem('dictionaries'));
-    // const dictionaryNames = this.dictionaries.map(d => d.name);
     this.state = {
       items: dictionaries,
+      newName: '',
+      newURL: '',
     };
+    this.handleBackClick = this.handleBackClick.bind(this);
+    this.onSortEnd = this.onSortEnd.bind(this);
+    this.handleAddClick = this.handleAddClick.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleURLChange = this.handleURLChange.bind(this);
+    this.handleRemoveClick = this.handleRemoveClick.bind(this);
   }
 
   onSortEnd({ oldIndex, newIndex }) {
@@ -40,6 +60,31 @@ class Config extends Component {
 
   handleBackClick() {
     this.props.router.push('/dic');
+  }
+
+  handleAddClick(event) {
+    const items = this.state.items;
+    items.push({ name: this.state.newName, url: this.state.newURL });
+    this.setState({ items: items });
+    localStorage.setItem('dictionaries', JSON.stringify(items));
+    event.preventDefault();
+  }
+
+  handleNameChange(event) {
+    this.setState({ newName: event.target.value });
+  }
+
+  handleURLChange(event) {
+    this.setState({ newURL: event.target.value });
+  }
+
+  handleRemoveClick(index) {
+    const items = this.state.items;
+    items.splice(index, 1);
+    console.log('check:', items);
+    this.setState({ items: items });
+    localStorage.setItem('dictionaries', JSON.stringify(items));
+    event.preventDefault();
   }
 
   render() {
@@ -56,7 +101,45 @@ class Config extends Component {
         </header>
 
         <div className="window-content">
-          <SortableList items={this.state.items} onSortEnd={this.onSortEnd} />
+          <div>
+            <SortableList
+              items={this.state.items}
+              onSortEnd={this.onSortEnd}
+              onRemove={this.handleRemoveClick}
+              useDragHandle={true}
+            />
+
+            <form>
+              <div className="form-group">
+                <label>Dictionary Name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Dictionary Name"
+                  value={this.state.newName}
+                  onChange={this.handleNameChange}
+                />
+              </div>
+              <div className="form-group">
+                <label>Dictionary URL</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Dictionary URL"
+                  value={this.state.newURL}
+                  onChange={this.handleURLChange}
+                />
+              </div>
+              <div className="form-actions">
+                <button
+                  type="submit"
+                  className="btn btn-form btn-default"
+                  onClick={this.handleAddClick}>
+                  Add
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     );
