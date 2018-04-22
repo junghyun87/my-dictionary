@@ -17,31 +17,34 @@ class Dic extends Component {
     this.handleMenuItemClick = this.handleMenuItemClick.bind(this);
     this.handleEditClick = this.handleEditClick.bind(this);
     this.handleShortcut = this.handleShortcut.bind(this);
-    localStorage.setItem(
-      'dictionaries',
-      JSON.stringify([
-        {
-          name: 'Dictionary.com',
-          url: 'http://www.dictionary.com/',
-        },
-        {
-          name: "Oxford learner's Dict.",
-          url: 'https://www.oxfordlearnersdictionaries.com/',
-        },
-        {
-          name: 'Naver Korean-English Dict.',
-          url: 'http://m.endic.naver.com/',
-        },
-        {
-          name: 'Memorize this',
-          url: 'https://memorize-this.firebaseapp.com/new',
-        },
-        {
-          name: 'Google',
-          url: 'https://www.google.com/',
-        },
-      ])
-    );
+    if (localStorage.getItem('dictionaries') === null) {
+      console.log('Local storage does not have dictionaries key');
+      localStorage.setItem(
+        'dictionaries',
+        JSON.stringify([
+          {
+            name: 'Dictionary.com',
+            url: 'http://www.dictionary.com/',
+          },
+          {
+            name: "Oxford learner's Dict.",
+            url: 'https://www.oxfordlearnersdictionaries.com/',
+          },
+          {
+            name: 'Naver Korean-English Dict.',
+            url: 'http://m.endic.naver.com/',
+          },
+          {
+            name: 'Memorize this',
+            url: 'https://memorize-this.firebaseapp.com/new',
+          },
+          {
+            name: 'Google',
+            url: 'https://www.google.com/',
+          },
+        ])
+      );
+    }
     this.dictionaries = JSON.parse(localStorage.getItem('dictionaries'));
     this.state = {
       webview_url: 'https://www.oxfordlearnersdictionaries.com/',
@@ -107,8 +110,8 @@ class Dic extends Component {
     return (
       <div>
         <header className="toolbar toolbar-header">
+          <h1 className="title">My Dictionary</h1>
           <div className="toolbar-actions">
-            <h1 className="title">Dictionary</h1>
             <div className="btn-group">
               <button
                 id="btn_left"
