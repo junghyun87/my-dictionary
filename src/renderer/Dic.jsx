@@ -53,7 +53,11 @@ class Dic extends Component {
 
   handleShortcut(number) {
     console.log('shortchut function!', number);
-    this.setState({ webview_url: this.dictionaries[number].url });
+    if (number === 0) {
+      this.props.router.push('/config');
+    } else {
+      this.setState({ webview_url: this.dictionaries[number].url });
+    }
   }
 
   componentDidMount() {
@@ -61,6 +65,9 @@ class Dic extends Component {
       Mousetrap.bind(`command+${i + 1}`, () => {
         this.handleShortcut(i);
       });
+    });
+    Mousetrap.bind(`command+0`, () => {
+      this.handleShortcut(0);
     });
   }
 
