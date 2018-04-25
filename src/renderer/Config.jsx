@@ -5,20 +5,23 @@ import {
   SortableHandle,
   arrayMove,
 } from 'react-sortable-hoc';
+import './Config.css';
 
-const DragHandle = SortableHandle(() => <span>::</span>); // This can be any component you want
+const DragHandle = SortableHandle(() => (
+  <span className={'drag-handle'}>☰</span>
+)); // This can be any component you want
 
 const SortableItem = SortableElement(({ idx, onRemove, value }) => (
-  <li>
+  <li className={`dic-list-item`}>
     <DragHandle />
-    {value}
-    <span onClick={() => onRemove(idx)}>Remove {idx}</span>
+    <span>{value}</span>
+    <span onClick={() => onRemove(idx)} className={'icon icon-trash'} />
   </li>
 ));
 
 const SortableList = SortableContainer(({ items, onRemove }) => {
   return (
-    <ol>
+    <ul id={`dic-list`}>
       {items.map((value, index) => (
         <SortableItem
           key={`item-${index}`}
@@ -28,7 +31,7 @@ const SortableList = SortableContainer(({ items, onRemove }) => {
           onRemove={onRemove}
         />
       ))}
-    </ol>
+    </ul>
   );
 });
 
@@ -102,6 +105,7 @@ class Config extends Component {
 
         <div className="window-content">
           <div>
+            <div className="subtitle">Edit order or delete dictionaries</div>
             <SortableList
               items={this.state.items}
               onSortEnd={this.onSortEnd}
@@ -109,6 +113,7 @@ class Config extends Component {
               useDragHandle={true}
             />
 
+            <div className="subtitle">Add new dictionary</div>
             <form>
               <div className="form-group">
                 <label>Dictionary Name</label>
