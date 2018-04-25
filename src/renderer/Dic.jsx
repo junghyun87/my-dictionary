@@ -56,14 +56,14 @@ class Dic extends Component {
     if (number === 0) {
       this.props.router.push('/config');
     } else {
-      this.setState({ webview_url: this.dictionaries[number].url });
+      this.setState({ webview_url: this.dictionaries[number - 1].url });
     }
   }
 
   componentDidMount() {
     this.dictionaries.forEach((d, i) => {
       Mousetrap.bind(`command+${i + 1}`, () => {
-        this.handleShortcut(i);
+        this.handleShortcut(i + 1);
       });
     });
     Mousetrap.bind(`command+0`, () => {
