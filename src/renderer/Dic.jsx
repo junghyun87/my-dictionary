@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import * as Mousetrap from 'Mousetrap';
+import * as Mousetrap from 'mousetrap';
 import './Dic.css';
 const wv_style = {
   display: 'inline-flex',
