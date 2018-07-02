@@ -8,13 +8,11 @@ after_success: npm run package
 cache:
   directories:
   - node_modules
-before_deploy:
-  - export FILE_TO_UPLOAD=$(ls out/my-dictionary-darwn-x64/my-dictionary)
 deploy:
   provider: releases
   api_key:
     secure: 2LzPN5LYSDrkhkOrip6VwJ1vjMmmohL434YDhp3moQqr9DHZxo1WY5pZbj1Kshg01r5vKnb6n399zkRh4NozfbeJCQ7vl6r/BbDNVb5oUCrkeEr1Lb0C7ebVs1WvA1vvGe7m+44uHLtQgu1gp0VWZBwtjK0l17J8O3HjXMm0X+QG3WC2ZzLU/skEyceZ+siZGQIUiILldwsoueN/Vi6gFWVCl6CTDF/im3h/Zv7ItPS2j0jLd1EJUfh3VfO6SVT9kr/Am7MU5Gig4IC6/uuEJ05Eje0otoEe04fAaeJAWfqxfdoUgKsVICgEJZPHho0CWVDcrwDPF667VPmRfsDUd8hg51cUjXOHpqkjyd8/1M50vCEBy6A3ZJQSlbk/Yg5aR4Fp6AHuQcDgqf/mem3SKWLSYQpbGzl4GA3HIwz3b0gM6aDTiV5ftbyYcfjKao3fSCpYuxUnHc6Ux7h725rPb4lr71+KIaIS6bj3VxY/VVhriu69mUw/PprAWO7toVydeJg6cllBEObSvJgAZv1B582dUGuTiCaBR5ifzvwiTv+6XGjwm/BgWbZnblBQcxK9B2JSqGVAtPLMIkbCnVo1yQZU7g1zJxYtM4Zj71KJ+YeG+bpvBgn6omLSqoku0XfBtRuiXyyEsLmefVJCSMylg/m6roP+q7rhoxsxg1ZXHzI=
-  file: "${FILE_TO_UPLOAD}"
+  file: "out/my-dictionary-darwn-x64/my-dictionary.app"
   on:
     repo: junghyun87/my-dictionary
-    tags: true
+
