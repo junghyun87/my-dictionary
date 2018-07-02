@@ -1,6 +1,6 @@
 {
-  "name": "dictionary-in-tray",
-  "productName": "Dic-in-tray",
+  "name": "my-dictionary",
+  "productName": "my-dictionary",
   "version": "1.0.0",
   "main": "dist/main/index.js",
   "license": "ISC",
@@ -11,7 +11,7 @@
     "start": "electron .",
     "package": "electron-packager ./ --platform=darwin --arch=x64 --out=out --icon=./icon.icns --overwrite"
   },
-  "repository": "https://github.com/junghyun87/dictionary-in-tray",
+  "repository": "https://github.com/junghyun87/my-dictionary",
   "keywords": [
     "Dictionary",
     "Electron"
