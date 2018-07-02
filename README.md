@@ -32,6 +32,7 @@ open out/Dic-in-tray-darwin-x64/Dic-in-tray.app
 
 # Todo
 
+- feat: Cmd+Q button
 - feat: add 'ese' to local shortcut
 - feat: config list style (https://www.w3schools.com/howto/howto_js_todolist.asp, http://rubaxa.github.io/Sortable/, https://github.com/clauderic/react-sortable-hoc)
 - fix: shortcut
