@@ -1,6 +1,5 @@
 # Todo
 
-- add 'ese' to local shortcut
 - 메뉴 밖에 클릭하면 메뉴 사라지게
 - dictionary 그림
 

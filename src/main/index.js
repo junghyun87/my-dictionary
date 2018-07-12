@@ -1,4 +1,11 @@
-import { app, BrowserWindow, Tray, Menu, globalShortcut } from 'electron';
+import {
+  app,
+  BrowserWindow,
+  Tray,
+  Menu,
+  globalShortcut,
+  ipcMain,
+} from 'electron';
 import path from 'path';
 
 const assetsDirectory = path.join(__dirname, '../../', 'assets');
@@ -41,6 +48,10 @@ const createMenu = () => {
 
 // Quit the app when the window is closed
 app.on('window-all-closed', () => {
+  app.quit();
+});
+
+ipcMain.on('close-me', (evt, arg) => {
   app.quit();
 });
 

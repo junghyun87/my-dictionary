@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import * as Mousetrap from 'mousetrap';
 import './Dic.css';
 import { RingLoader } from 'react-spinners';
+const { ipcRenderer } = require('electron');
 
 class Dic extends Component {
   constructor() {
@@ -12,6 +13,7 @@ class Dic extends Component {
     this.handleMoreClick = this.handleMoreClick.bind(this);
     this.handleMenuItemClick = this.handleMenuItemClick.bind(this);
     this.handleEditClick = this.handleEditClick.bind(this);
+    this.handleQuickClick = this.handleQuickClick.bind(this);
     this.handleShortcut = this.handleShortcut.bind(this);
     this.handleStartLoading = this.handleStartLoading.bind(this);
     this.handleStopLoading = this.handleStopLoading.bind(this);
@@ -121,6 +123,10 @@ class Dic extends Component {
     });
   }
 
+  handleQuickClick(e) {
+    ipcRenderer.send('close-me');
+  }
+
   render() {
     const dropdown_items = this.dictionaries.map((dic, i) => {
       return (
@@ -169,6 +175,10 @@ class Dic extends Component {
                 <div onClick={e => this.handleEditClick(e)}>
                   <span>Edit dictionaries</span>
                   <span>⌘0</span>
+                </div>
+                <div onClick={e => this.handleQuickClick(e)}>
+                  <span>Quit</span>
+                  <span>⌘Q</span>
                 </div>
               </div>
             </div>
