@@ -23,3 +23,14 @@
 .dropdown-content div:hover {
   background-color: #f1f1f1;
 }
+
+.webview-style {
+  flex-grow: 1;
+}
+
+.window-content {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  height: 500px;
+}

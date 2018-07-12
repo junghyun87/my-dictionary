@@ -1,3 +1,11 @@
+# Todo
+
+- add 'ese' to local shortcut
+- 메뉴 밖에 클릭하면 메뉴 사라지게
+- dictionary 그림
+
+- feat: config list style (https://www.w3schools.com/howto/howto_js_todolist.asp, http://rubaxa.github.io/Sortable/, https://github.com/clauderic/react-sortable-hoc)
+
 # My Dictionary
 
 I frequently use [올ㅋ사전](http://allkdic.xoul.kr/), but it does not provide another dictionary that I also frequently use, so I made it.
@@ -29,10 +37,3 @@ open out/Dic-in-tray-darwin-x64/Dic-in-tray.app
 ```
 
 ![screenshot](https://user-images.githubusercontent.com/4505216/38454484-2f366892-3aa3-11e8-9e7c-baafd357891c.png)
-
-# Todo
-
-- feat: Cmd+Q button
-- feat: add 'ese' to local shortcut
-- feat: config list style (https://www.w3schools.com/howto/howto_js_todolist.asp, http://rubaxa.github.io/Sortable/, https://github.com/clauderic/react-sortable-hoc)
-- fix: shortcut

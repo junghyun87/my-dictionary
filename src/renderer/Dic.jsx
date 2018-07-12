@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import * as Mousetrap from 'mousetrap';
 import './Dic.css';
-const wv_style = {
-  display: 'inline-flex',
-  width: 360,
-  height: 500,
-};
+import { RingLoader } from 'react-spinners';
 
 class Dic extends Component {
   constructor() {
@@ -17,6 +13,8 @@ class Dic extends Component {
     this.handleMenuItemClick = this.handleMenuItemClick.bind(this);
     this.handleEditClick = this.handleEditClick.bind(this);
     this.handleShortcut = this.handleShortcut.bind(this);
+    this.handleStartLoading = this.handleStartLoading.bind(this);
+    this.handleStopLoading = this.handleStopLoading.bind(this);
     if (localStorage.getItem('dictionaries') === null) {
       console.log('Local storage does not have dictionaries key');
       localStorage.setItem(
@@ -44,6 +42,7 @@ class Dic extends Component {
     this.dictionaries = JSON.parse(localStorage.getItem('dictionaries'));
     this.state = {
       webview_url: 'https://www.oxfordlearnersdictionaries.com/',
+      is_loading: false,
     };
   }
 
@@ -65,6 +64,15 @@ class Dic extends Component {
     Mousetrap.bind(`command+0`, () => {
       this.handleShortcut(0);
     });
+    const { _webview } = this.refs;
+    _webview.addEventListener('did-start-loading', this.handleStartLoading);
+    _webview.addEventListener('did-stop-loading', this.handleStopLoading);
+  }
+
+  componentWillUnmount() {
+    const { _webview } = this.refs;
+    _webview.removeEventListener('did-start-loading', this.handleStartLoading);
+    _webview.removeEventListener('did-stop-loading', this.handleStopLoading);
   }
 
   handleLeftClick() {
@@ -101,6 +109,18 @@ class Dic extends Component {
     e.preventDefault();
   }
 
+  handleStartLoading(e) {
+    this.setState({
+      is_loading: true,
+    });
+  }
+
+  handleStopLoading(e) {
+    this.setState({
+      is_loading: false,
+    });
+  }
+
   render() {
     const dropdown_items = this.dictionaries.map((dic, i) => {
       return (
@@ -110,6 +130,7 @@ class Dic extends Component {
         </div>
       );
     });
+
     return (
       <div>
         <header className="toolbar toolbar-header">
@@ -129,6 +150,14 @@ class Dic extends Component {
                 <span className="icon icon-right" />
               </button>
             </div>
+            <div class="btn-group">
+              <RingLoader
+                color={'#123abc'}
+                loading={this.state.is_loading}
+                size={20}
+              />
+            </div>
+
             <div id="right-menu" className="pull-right">
               <button
                 className="btn btn-default btn-dropdown dropdown"
@@ -145,13 +174,12 @@ class Dic extends Component {
             </div>
           </div>
         </header>
-
         <div className="window-content">
           <webview
             ref="_webview"
             src={this.state.webview_url}
             useragent="Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/43.0.2357.65 Mobile Safari/537.36"
-            style={wv_style}
+            className="webview-style"
           />
         </div>
       </div>
