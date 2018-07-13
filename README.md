@@ -11,8 +11,8 @@ Dictionary icon is from [electron-bookmark](https://github.com/2woongjae/electro
 ## Running
 
 ```sh
-git clone https://github.com/junghyun87/dictionary-in-tray
-cd dictionary-in-tray
+git clone https://github.com/junghyun87/my-dictionary
+cd my-dictionary
 npm install
 npm start
 ```
@@ -21,7 +21,7 @@ npm start
 
 ```sh
 npm run package
-open out/Dic-in-tray-darwin-x64/Dic-in-tray.app
+open out/my-dictionary-darwin-x64/my-dictionary.app
 ```
 
 ![screenshot](https://user-images.githubusercontent.com/4505216/38454484-2f366892-3aa3-11e8-9e7c-baafd357891c.png)
