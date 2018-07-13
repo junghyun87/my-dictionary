@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - '8'
 script: npm run build
-after_success
+after_success:
   - npm run package
   - zip -r out/my-dictionary-darwn-x64/my-dictionary.app out/my-dictionary.zip
 cache:
