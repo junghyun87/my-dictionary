@@ -4,7 +4,7 @@ node_js:
 script: npm run build
 after_success:
   - npm run package
-  - zip -r out/my-dictionary.zip out/my-dictionary-darwn-x64/my-dictionary.app
+  - zip -r out/my-dictionary.zip out/my-dictionary-darwin-x64/my-dictionary.app
 cache:
   directories:
   - node_modules
