@@ -18,6 +18,7 @@ class Dic extends Component {
     this.handleShortcut = this.handleShortcut.bind(this);
     this.handleStartLoading = this.handleStartLoading.bind(this);
     this.handleStopLoading = this.handleStopLoading.bind(this);
+    this.handleESC = this.handleESC.bind(this);
     if (localStorage.getItem('dictionaries') === null) {
       console.log('Local storage does not have dictionaries key');
       localStorage.setItem(
@@ -67,6 +68,9 @@ class Dic extends Component {
     Mousetrap.bind(`command+0`, () => {
       this.handleShortcut(0);
     });
+    Mousetrap.bind('esc', () => {
+      this.handleESC();
+    });
     const { _webview } = this.refs;
     _webview.addEventListener('did-start-loading', this.handleStartLoading);
     _webview.addEventListener('did-stop-loading', this.handleStopLoading);
@@ -81,6 +85,14 @@ class Dic extends Component {
     const { _options } = this.refs;
     if (_options.style.display === 'block') {
       _options.style.display = 'none';
+    }
+  }
+  handleESC() {
+    const { _options } = this.refs;
+    if (_options.style.display === 'block') {
+      _options.style.display = 'none';
+    } else {
+      ipcRenderer.send('hide-me');
     }
   }
 

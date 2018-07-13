@@ -55,6 +55,10 @@ ipcMain.on('close-me', (evt, arg) => {
   app.quit();
 });
 
+ipcMain.on('hide-me', (evt, arg) => {
+  window.hide();
+});
+
 const createTray = () => {
   tray = new Tray(path.join(assetsDirectory, 'icon.png'));
   tray.on('right-click', toggleWindow);

@@ -1,7 +1,5 @@
 # Todo
 
-- ese 누르면 창 사라지게(메뉴 열려있으면 메뉴 닫고, 한번더 ese 누르면 창 숨기기)
-- 메뉴 밖에 클릭하면 메뉴 사라지게
 - dictionary 그림
 
 - feat: config list style (https://www.w3schools.com/howto/howto_js_todolist.asp, http://rubaxa.github.io/Sortable/, https://github.com/clauderic/react-sortable-hoc)
