@@ -8,6 +8,7 @@ const { ipcRenderer } = require('electron');
 class Dic extends Component {
   constructor() {
     super();
+    this.handleAppClick = this.handleAppClick.bind(this);
     this.handleLeftClick = this.handleLeftClick.bind(this);
     this.handleRightClick = this.handleRightClick.bind(this);
     this.handleMoreClick = this.handleMoreClick.bind(this);
@@ -76,6 +77,12 @@ class Dic extends Component {
     _webview.removeEventListener('did-start-loading', this.handleStartLoading);
     _webview.removeEventListener('did-stop-loading', this.handleStopLoading);
   }
+  handleAppClick(e) {
+    const { _options } = this.refs;
+    if (_options.style.display === 'block') {
+      _options.style.display = 'none';
+    }
+  }
 
   handleLeftClick() {
     const { _webview } = this.refs;
@@ -91,12 +98,12 @@ class Dic extends Component {
     }
   }
 
-  handleMoreClick() {
+  handleMoreClick(e) {
     const { _options } = this.refs;
-    console.log(_options.style.display);
     _options.style.display === 'none' || _options.style.display === ''
       ? (_options.style.display = 'block')
       : (_options.style.display = 'none');
+    e.stopPropagation();
   }
 
   handleMenuItemClick(dicURL, e) {
@@ -138,7 +145,7 @@ class Dic extends Component {
     });
 
     return (
-      <div>
+      <div onClick={e => this.handleAppClick(e)}>
         <header className="toolbar toolbar-header">
           <h1 className="title">My Dictionary</h1>
           <div className="toolbar-actions">
@@ -156,7 +163,7 @@ class Dic extends Component {
                 <span className="icon icon-right" />
               </button>
             </div>
-            <div class="btn-group">
+            <div className="btn-group">
               <RingLoader
                 color={'#123abc'}
                 loading={this.state.is_loading}
@@ -167,7 +174,8 @@ class Dic extends Component {
             <div id="right-menu" className="pull-right">
               <button
                 className="btn btn-default btn-dropdown dropdown"
-                onClick={this.handleMoreClick}>
+                id="edit-button"
+                onClick={e => this.handleMoreClick(e)}>
                 <span className="icon icon-menu" />
               </button>
               <div className="dropdown-content" ref="_options">
