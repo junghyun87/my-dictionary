@@ -18,4 +18,5 @@ deploy:
   skip_cleanup: true
   on:
     repo: junghyun87/my-dictionary
+    tags: true
 
