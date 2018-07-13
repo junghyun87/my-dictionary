@@ -9,7 +9,7 @@ cache:
   directories:
   - node_modules
 before_deploy:
-  - ls out/my-dictionary-darwn-x64
+  - ls out/my-dictionary-darwin-x64
 deploy:
   provider: releases
   api_key:
