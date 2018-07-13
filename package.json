@@ -3,7 +3,7 @@
   "productName": "my-dictionary",
   "version": "1.0.0",
   "main": "dist/main/index.js",
-  "license": "ISC",
+  "license": "MIT",
   "author": "Jung-Hyun",
   "scripts": {
     "build": "webpack",

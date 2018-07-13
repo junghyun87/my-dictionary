@@ -1,22 +1,12 @@
-# Todo
-
-- dictionary 그림
-
-- feat: config list style (https://www.w3schools.com/howto/howto_js_todolist.asp, http://rubaxa.github.io/Sortable/, https://github.com/clauderic/react-sortable-hoc)
-
 # My Dictionary
 
-I frequently use [올ㅋ사전](http://allkdic.xoul.kr/), but it does not provide another dictionary that I also frequently use, so I made it.
-
-This app now shows [Oxford Learner's Dictionaries](https://www.oxfordlearnersdictionaries.com/).
-
-I plan to add a feature that a user can add another dictionary websites and choose one of them.
+I frequently use [올ㅋ사전](http://allkdic.xoul.kr/), but it does not provide another dictionary that I also frequently use, and I cannot add new dictionary, so I made it.
 
 This app is built with [Electron](https://electronjs.org/) and [photon](http://photonkit.com).
 
-Much code is from [tray-example](https://github.com/kevinsawicki/tray-example) and [electron-bookmark](https://github.com/2woongjae/electron-bookmark).
+Much code is from [tray-example](https://github.com/kevinsawicki/tray-example), [electron-bookmark](https://github.com/2woongjae/electron-bookmark) and dependency projects.
 
-Icons are from [electron-bookmark](https://github.com/2woongjae/electron-bookmark).
+Dictionary icon is from [electron-bookmark](https://github.com/2woongjae/electron-bookmark).
 
 ## Running
 
@@ -35,3 +25,7 @@ open out/Dic-in-tray-darwin-x64/Dic-in-tray.app
 ```
 
 ![screenshot](https://user-images.githubusercontent.com/4505216/38454484-2f366892-3aa3-11e8-9e7c-baafd357891c.png)
+
+# Todo
+
+- change dictionary icon
