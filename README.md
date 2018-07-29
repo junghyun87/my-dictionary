@@ -5,7 +5,7 @@
 I frequently use [올ㅋ사전](http://allkdic.xoul.kr/), but it does not provide another dictionary that I also frequently use, and I cannot add new dictionary, so I made it.
 
 ## Download
-* Currently, MacOS version is available. You can download it [here](https://github.com/junghyun87/my-dictionary/releases/download/v0.2/my-dictionary.zip).
+* Currently, MacOS version is available. You can download it [here](https://github.com/junghyun87/my-dictionary/releases/download/v0.2/my-dictionary.zip) or in the [releases page](https://github.com/junghyun87/my-dictionary/releases).
 
 ## Features
 
