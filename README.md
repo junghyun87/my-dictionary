@@ -6,7 +6,7 @@ I frequently use [올ㅋ사전](http://allkdic.xoul.kr/), but it does not provid
 
 ## Features
 
-1.  This is the first page. If you click the dictionary icon on the tray, the window shows
+1.  This is the first page. If you click the dictionary icon on the tray, the window appears
 
     ![feature_1](https://user-images.githubusercontent.com/4505216/43362397-0b270aae-9324-11e8-8077-76367fa78d26.png)
 
