@@ -4,6 +4,9 @@
 
 I frequently use [올ㅋ사전](http://allkdic.xoul.kr/), but it does not provide another dictionary that I also frequently use, and I cannot add new dictionary, so I made it.
 
+## Download
+* Currently, MacOS version is available. You can download it [here] (https://github.com/junghyun87/my-dictionary/releases/download/v0.2/my-dictionary.zip)
+
 ## Features
 
 1.  This is the first page. If you click the dictionary icon on the tray, the window appears
@@ -19,6 +22,16 @@ I frequently use [올ㅋ사전](http://allkdic.xoul.kr/), but it does not provid
     ![feature_3](https://user-images.githubusercontent.com/4505216/43362400-12624b9e-9324-11e8-9aa9-505b25996d6c.png)
 
 4.  `Cmd+Control+Shift+D` is a shortcut to show/hide the app
+
+## Acknowledgments
+
+This app could be made by using [Electron](https://electronjs.org/), [React.js](https://reactjs.org/), [photon](http://photonkit.com) and other packages.
+
+Much code is from [tray-example](https://github.com/kevinsawicki/tray-example), [electron-bookmark](https://github.com/2woongjae/electron-bookmark) and dependency projects.
+
+Dictionary icon is from [electron-bookmark](https://github.com/2woongjae/electron-bookmark).
+
+# Running and packaging with source code
 
 ## Running
 
@@ -36,16 +49,8 @@ npm run package
 open out/my-dictionary-darwin-x64/my-dictionary.app
 ```
 
-## Acknowledgments
-
-This app could be made by using [Electron](https://electronjs.org/), [React.js](https://reactjs.org/), [photon](http://photonkit.com) and other packages.
-
-Much code is from [tray-example](https://github.com/kevinsawicki/tray-example), [electron-bookmark](https://github.com/2woongjae/electron-bookmark) and dependency projects.
-
-Dictionary icon is from [electron-bookmark](https://github.com/2woongjae/electron-bookmark).
-
 # Todo
 
 - Change dictionary icon
-- Currently, I test this on my MacOS. I plan to support other OS.
+- Currently, I tested this on my MacOS. I plan to support other OS.
 - Make test cases
