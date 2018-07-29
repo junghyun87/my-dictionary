@@ -47,5 +47,5 @@ Dictionary icon is from [electron-bookmark](https://github.com/2woongjae/electro
 # Todo
 
 - Change dictionary icon
-- Support other OS.
+- Currently, I test this on my MacOS. I plan to support other OS.
 - Make test cases
