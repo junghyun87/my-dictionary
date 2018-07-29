@@ -36,7 +36,7 @@ npm run package
 open out/my-dictionary-darwin-x64/my-dictionary.app
 ```
 
-## Acknowledge
+## Acknowledgments
 
 This app could be made by using [Electron](https://electronjs.org/), [React.js](https://reactjs.org/), [photon](http://photonkit.com) and other packages.
 
