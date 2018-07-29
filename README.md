@@ -6,7 +6,7 @@ I frequently use [올ㅋ사전](http://allkdic.xoul.kr/), but it does not provid
 
 ## Features
 
-1.  This is the first page
+1.  This is the first page. If you click the dictionary icon on the tray, the window shows
 
     ![feature_1](https://user-images.githubusercontent.com/4505216/43362397-0b270aae-9324-11e8-8077-76367fa78d26.png)
 
@@ -18,7 +18,7 @@ I frequently use [올ㅋ사전](http://allkdic.xoul.kr/), but it does not provid
 
     ![feature_3](https://user-images.githubusercontent.com/4505216/43362400-12624b9e-9324-11e8-9aa9-505b25996d6c.png)
 
-4.  `Cmd+Control+Shift+D` is a shortcut to show/hide the app.
+4.  `Cmd+Control+Shift+D` is a shortcut to show/hide the app
 
 ## Running
 
