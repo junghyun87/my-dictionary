@@ -9,7 +9,7 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "start": "electron .",
-    "package": "electron-packager ./ --platform=darwin --arch=x64 --out=out --icon=./icon.icns --overwrite"
+    "package": "electron-packager ./ --platform=darwin --arch=x64 --out=out --icon=./icon.icns --overwrite --darwinDarkModeSupport=true"
   },
   "repository": "https://github.com/junghyun87/my-dictionary",
   "keywords": [
@@ -23,7 +23,7 @@
     "babel-preset-react": "^6.16.0",
     "css-loader": "^0.23.1",
     "electron": "^1.8.4",
-    "electron-packager": "^12.0.0",
+    "electron-packager": "^12.2.0",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.0"
   },

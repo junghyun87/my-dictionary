@@ -60,7 +60,7 @@ ipcMain.on('hide-me', (evt, arg) => {
 });
 
 const createTray = () => {
-  tray = new Tray(path.join(assetsDirectory, 'icon.png'));
+  tray = new Tray(path.join(assetsDirectory, 'iconTemplate.png'));
   tray.on('right-click', toggleWindow);
   tray.on('double-click', toggleWindow);
   tray.on('click', function(event) {
